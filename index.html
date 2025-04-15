@@ -133,6 +133,42 @@
   </div>
 </div>
 
+<!-- Error Modal for invalid email -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Invalid Email!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Please enter a valid email address.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Success Modal to notify that email has been saved -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">Email Saved!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Your email has been successfully saved.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid tab-content" id="tabContent">
   <div class="tab-pane fade show active" id="setEmail" role="tabpanel">
     <div class="email-wrapper">
@@ -197,19 +233,41 @@
 
   function saveEmailTab() {
     userEmail = document.getElementById('emailInputTab').value;
-    if (!userEmail) return alert("Please enter a valid email.");
+    if (!isValidEmail(userEmail)) {
+      showErrorDialog();
+      return;
+    }
     localStorage.setItem('welfareEmail', userEmail);
-    alert("Email saved!");
+    showSuccessDialog();
     displaySavedEmail();
-    location.reload();
+    setTimeout(() => location.reload(), 2000); // Delay reload for 2 seconds to allow modal visibility
   }
 
   function saveEmail() {
     userEmail = document.getElementById('emailInput').value;
+    if (!isValidEmail(userEmail)) {
+      showErrorDialog();
+      return;
+    }
     localStorage.setItem('welfareEmail', userEmail);
-    alert("Email saved!");
+    showSuccessDialog();
     displaySavedEmail();
-    location.reload();
+    setTimeout(() => location.reload(), 2000); // Delay reload for 2 seconds to allow modal visibility
+  }
+
+  function isValidEmail(email) {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return regex.test(email);
+  }
+
+  function showErrorDialog() {
+    const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+    errorModal.show();
+  }
+
+  function showSuccessDialog() {
+    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+    successModal.show();
   }
 
   async function fetchSheet(sheet, filterByEmail = false) {
@@ -220,7 +278,7 @@
     const headers = data.values[0];
     const rows = data.values.slice(1);
     const filtered = filterByEmail ? rows.filter(row => row[0]?.toLowerCase() === userEmail.toLowerCase()) : rows;
-    return filtered.map(row => Object.fromEntries(headers.map((key, i) => [key, row[i] || ''])));
+    return filtered.map(row => Object.fromEntries(headers.map((key, i) => [key, row[i] || '']))); 
   }
 
   function renderCard(item) {
