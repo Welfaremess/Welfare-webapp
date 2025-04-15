@@ -99,6 +99,25 @@
 
 <div class="top-header">Welfare Mess</div>
 
+<!-- Modal for email submission -->
+<div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="emailModalLabel">Enter your Email</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="email" id="emailInput" class="form-control" placeholder="Enter your email" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="saveEmail()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid tab-content" id="tabContent">
   <div class="tab-pane fade show active" id="setEmail" role="tabpanel">
     <div class="email-wrapper">
@@ -130,10 +149,10 @@
     <a class="nav-link active" data-bs-toggle="tab" href="#setEmail"><i class="fas fa-envelope"></i>Email</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" data-bs-toggle="tab" href="#instalments"><i class="fas fa-money-bill-wave"></i>Instalments</a>
+    <a class="nav-link" id="instalmentsLink" data-bs-toggle="tab" href="#instalments"><i class="fas fa-money-bill-wave"></i>Instalments</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" data-bs-toggle="tab" href="#diets"><i class="fas fa-drumstick-bite"></i>Diets</a>
+    <a class="nav-link" id="dietsLink" data-bs-toggle="tab" href="#diets"><i class="fas fa-drumstick-bite"></i>Diets</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" data-bs-toggle="tab" href="#announcements"><i class="fas fa-bullhorn"></i>Announcements</a>
@@ -189,6 +208,9 @@
     if (userEmail) {
       renderTab('instalmentsContent', await fetchSheet(sheetNames[0], true));
       renderTab('dietsContent', await fetchSheet(sheetNames[1], true));
+    } else {
+      const modal = new bootstrap.Modal(document.getElementById('emailModal'));
+      modal.show();
     }
     renderTab('announcements', await fetchSheet(sheetNames[2]));
     renderTab('dietMenu', await fetchSheet(sheetNames[3]));
@@ -196,6 +218,23 @@
   }
 
   initTabs();
+
+  document.getElementById("instalmentsLink").addEventListener("click", function(event) {
+    if (!userEmail) {
+      event.preventDefault();
+      const modal = new bootstrap.Modal(document.getElementById('emailModal'));
+      modal.show();
+    }
+  });
+
+  document.getElementById("dietsLink").addEventListener("click", function(event) {
+    if (!userEmail) {
+      event.preventDefault();
+      const modal = new bootstrap.Modal(document.getElementById('emailModal'));
+      modal.show();
+    }
+  });
+
 </script>
 
 </body>
