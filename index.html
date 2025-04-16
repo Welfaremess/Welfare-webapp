@@ -283,7 +283,11 @@
 
   function renderCard(item) {
     return `<div class="card p-3">
-      ${Object.entries(item).map(([key, val]) => `<p><strong>${key}</strong><br>${val}</p>`).join('')}
+      ${Object.entries(item).map(([key, val]) => {
+  	const formattedVal = val.replace(/\n/g, '<br>');
+  		return `<p><strong>${key}</strong><br>${formattedVal}</p>`;
+		}).join('')}
+
     </div>`;
   }
 
