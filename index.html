@@ -4,9 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welfare Mess</title>
+
+  <!-- Google Fonts (Roboto) -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Bundle JS (includes Bootstrap JS + Popper.js) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -47,20 +54,186 @@
       background-color: white;
       border-top: 1px solid #ddd;
       justify-content: space-around;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow-x: auto; /* Make it scrollable horizontally */
+      white-space: nowrap; /* Prevent wrapping of nav items */
       z-index: 999;
-    }
 
+    }
+    .nav-tabs .nav-item {
+      flex-shrink: 0; /* Prevent the items from shrinking */
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      margin-right: 15px; 
+    }
     .nav-tabs .nav-link {
-      text-align: center;
-      font-size: 0.8rem;
-      padding: 0.5rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+      justify-content: center;
     }
 
     .nav-tabs .nav-link i {
-      display: block;
       font-size: 1.5rem;
       margin-bottom: 0.2rem;
     }
+	.nav-tabs::-webkit-scrollbar {
+	  height: 8px; /* Adjust height of scrollbar */
+	}
+
+	.nav-tabs::-webkit-scrollbar-thumb {
+	  background-color: rgba(0, 0, 0, 0.2); /* Optional: Style the scrollbar thumb */
+	  border-radius: 10px;
+	}
+
+	.nav-tabs::-webkit-scrollbar-track {
+	  background-color: rgba(0, 0, 0, 0.1); /* Optional: Style the scrollbar track */
+	}
+
+    .tab-content {
+      padding: 1rem;
+      padding-bottom: 100px;
+    }
+
+    #setEmail .email-wrapper {
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #setEmail input {
+      max-width: 300px;
+    }
+
+    .about-section {
+      margin-top: 0rem;
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+    }
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* Center horizontally */
+  align-items: center;      /* Center vertically */
+}
+
+
+    .card {
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+      max-width: 400px;
+      justify-content: center;
+      width: 100%;  /* Ensure card is responsive up to the max-width */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.01);
+    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welfare Mess</title>
+  
+  <!-- Google Fonts (Roboto) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Bundle JS (includes Bootstrap JS + Popper.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f7f9fc;
+      margin: 0;
+      padding-top: 60px;
+    }
+
+    .top-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #0d6efd;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 500;
+      z-index: 1000;
+    }
+
+    .refresh-btn {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    .nav-tabs {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: white;
+      border-top: 1px solid #ddd;
+      justify-content: space-around;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow-x: auto; /* Make it scrollable horizontally */
+      white-space: nowrap; /* Prevent wrapping of nav items */
+      z-index: 999;
+
+    }
+    .nav-tabs .nav-item {
+      flex-shrink: 0; /* Prevent the items from shrinking */
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      margin-right: 15px; 
+    }
+    .nav-tabs .nav-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+      justify-content: center;
+    }
+
+    .nav-tabs .nav-link i {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+	.nav-tabs::-webkit-scrollbar {
+	  height: 8px; /* Adjust height of scrollbar */
+	}
+	
+	.nav-tabs::-webkit-scrollbar-thumb {
+	  background-color: rgba(0, 0, 0, 0.2); /* Optional: Style the scrollbar thumb */
+	  border-radius: 10px;
+	}
+	
+	.nav-tabs::-webkit-scrollbar-track {
+	  background-color: rgba(0, 0, 0, 0.1); /* Optional: Style the scrollbar track */
+	}
 
     .tab-content {
       padding: 1rem;
@@ -97,6 +270,20 @@
     .card:hover {
       transform: scale(1.01);
     }
+    #installmentForm {
+      display: block;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    #installmentForm.show {
+      display: block;
+      opacity: 1;
+    }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
     @media (max-width: 576px) {
       .card p {
@@ -106,8 +293,12 @@
   </style>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
+<div id="loadingSpinner" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; display: flex; justify-content: center; align-items: center;">
+  <div class="spinner" style="border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 50px; height: 50px; animation: spin 2s linear infinite;"></div>
+</div>
 
 <div class="top-header">
   Welfare Mess
@@ -133,34 +324,16 @@
   </div>
 </div>
 
-<!-- Error Modal for invalid email -->
-<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+<!-- Modal for Success or Error Message -->
+<div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="errorModalLabel">Invalid Email!</h5>
+        <h5 class="modal-title" id="statusModalLabel">Message</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        Please enter a valid email address.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Success Modal to notify that email has been saved -->
-<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="successModalLabel">Email Saved!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Your email has been successfully saved.
+      <div class="modal-body" id="modalMessageBody">
+        <!-- Dynamic message content will go here -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
@@ -187,8 +360,9 @@
     </div>
   </div>
 
-  <div class="tab-pane fade" id="instalments" role="tabpanel">
-    <div id="instalmentsContent"></div>
+
+  <div class="tab-pane fade" id="Details" role="tabpanel">
+    <div id="DetailsContent"></div>
   </div>
   <div class="tab-pane fade" id="diets" role="tabpanel">
     <div id="dietsContent"></div>
@@ -196,6 +370,82 @@
   <div class="tab-pane fade" id="announcements" role="tabpanel"></div>
   <div class="tab-pane fade" id="dietMenu" role="tabpanel"></div>
   <div class="tab-pane fade" id="personnel" role="tabpanel"></div>
+<div class="tab-pane fade" id="installmentform" role="tabpanel">
+  <div class="container mt-4">
+    <!-- Clickable Card -->
+    <div class="card" id="installmentCard">
+      <div class="card-header">
+        <h4>Update Installment Information</h4>
+      </div>
+      <div class="card-body">
+        <p>Click here to update installment information.</p>
+      </div>
+    </div>
+
+    <!-- Hidden Form Inside the Card (Initially hidden) -->
+    <div id="installmentForm" class="card mt-3" style="display: none;">
+      <div class="card-header">
+         <button class="btn btn-secondary btn-sm" id="backButton">
+           <i class="fas fa-arrow-left"></i> Back
+         </button>
+        <h4>Update Installment Information</h4>
+      </div>
+      <div class="card-body">
+        <form id="installmentform">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required />
+          </div>
+          <div class="mb-3">
+            <label for="roomNumber" class="form-label">Room Number</label>
+            <input type="text" class="form-control" id="roomNumber" maxlength="3" required />
+            <small id="roomNumberHelp" class="form-text text-muted">Enter a valid room number (max 3 digits).</small>
+          </div>
+          <div class="mb-3">
+            <label for="installmentDate" class="form-label">Installment Date</label>
+            <input type="date" class="form-control" id="installmentDate" required />
+          </div>
+          <div class="mb-3">
+            <label for="installmentAmount" class="form-label">Installment Amount</label>
+            <input type="number" class="form-control" id="installmentAmount" required />
+          </div>
+          <div class="mb-3">
+            <label for="installmentMode" class="form-label">Installment Mode</label>
+            <select class="form-select" id="installmentMode" required>
+              <option value="Cash">Cash</option>
+              <option value="Online">Online</option>
+            </select>
+          </div>
+          <div class="mb-3" id="screenshotContainer" style="display:none;">
+            <label for="screenshot" class="form-label">Attach Screenshot (Only for Online)</label>
+            <input type="file" class="form-control" id="screenshot" accept="image/*" />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <!-- Second Clickable Card (Newly added card) -->
+    <div class="card" id="secondInstallmentCard">
+      <div class="card-header">
+        <h4>View Instalment Information</h4>
+      </div>
+      <div class="card-body">
+        <p>Click here to view installment information.</p>
+      </div>
+    </div>
+
+    <!-- Hidden Form Inside the Second Card (Initially hidden) -->
+    <div id="secondInstallmentForm" class="card mt-3" style="display: none;">
+      <div class="card-header">
+         <button class="btn btn-secondary btn-sm" id="secondBackButton">
+           <i class="fas fa-arrow-left"></i> Back
+         </button>
+        <h4>View Instalment Information</h4>
+      </div>
+      <div class="card-body" id="installmentsContent">
+      </div>
+    </div>
+  </div>
 </div>
 
 <ul class="nav nav-tabs nav-fill" id="tabs">
@@ -203,10 +453,13 @@
     <a class="nav-link active" data-bs-toggle="tab" href="#setEmail"><i class="fas fa-envelope"></i>Email</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="instalmentsLink" data-bs-toggle="tab" href="#instalments"><i class="fas fa-money-bill-wave"></i>Details</a>
+    <a class="nav-link" id="DetailsLink" data-bs-toggle="tab" href="#Details"><i class="fas fa-user-astronaut"></i>Details</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="dietsLink" data-bs-toggle="tab" href="#diets"><i class="fas fa-drumstick-bite"></i>Diets</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="tab" href="#installmentform"><i class="fas fa-solid fa-indian-rupee-sign"></i>Instalments</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" data-bs-toggle="tab" href="#announcements"><i class="fas fa-bullhorn"></i>Announcements</a>
@@ -217,12 +470,14 @@
   <li class="nav-item">
     <a class="nav-link" data-bs-toggle="tab" href="#personnel"><i class="fas fa-user-friends"></i>Team</a>
   </li>
+
+
 </ul>
 
 <script>
   const sheetId = '1KCgj6xJNj7gpJEwKH8fj3I_SldZsg1mKHiOA_8VESC0';
   const apiKey = 'AIzaSyCzg84aqc_4Phwc142-HqDGYMv9Dy2Ctqo';
-  const sheetNames = ['Basic details', 'Diets', 'Announcement', 'Diet Menu History', 'Key Personnel'];
+  const sheetNames = ['Basic details', 'Diets', 'Announcement', 'Diet Menu History', 'Key Personnel','Instalments'];
 
   let userEmail = localStorage.getItem('welfareEmail') || '';
 
@@ -234,11 +489,11 @@
   function saveEmailTab() {
     userEmail = document.getElementById('emailInputTab').value;
     if (!isValidEmail(userEmail)) {
-      showErrorDialog();
+     showModal("Error", "Your Email has not been saved successfully");
       return;
     }
     localStorage.setItem('welfareEmail', userEmail);
-    showSuccessDialog();
+    showModal("Success", "Your Email has been saved successfully");
     displaySavedEmail();
     setTimeout(() => location.reload(), 2000); // Delay reload for 2 seconds to allow modal visibility
   }
@@ -246,11 +501,11 @@
   function saveEmail() {
     userEmail = document.getElementById('emailInput').value;
     if (!isValidEmail(userEmail)) {
-      showErrorDialog();
+     showModal("Error", "Your Email has not been saved successfully");
       return;
     }
     localStorage.setItem('welfareEmail', userEmail);
-    showSuccessDialog();
+    showModal("Success", "Your Email has been saved successfully");
     displaySavedEmail();
     setTimeout(() => location.reload(), 2000); // Delay reload for 2 seconds to allow modal visibility
   }
@@ -260,15 +515,6 @@
     return regex.test(email);
   }
 
-  function showErrorDialog() {
-    const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
-    errorModal.show();
-  }
-
-  function showSuccessDialog() {
-    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-    successModal.show();
-  }
 
   async function fetchSheet(sheet, filterByEmail = false) {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheet}?alt=json&key=${apiKey}`;
@@ -281,14 +527,77 @@
     return filtered.map(row => Object.fromEntries(headers.map((key, i) => [key, row[i] || '']))); 
   }
 
-  function renderCard(item) {
-    return `<div class="card p-3">
-      ${Object.entries(item).map(([key, val]) => {
-  	const formattedVal = val.replace(/\n/g, '<br>');
-  		return `<p><strong>${key}</strong><br>${formattedVal}</p>`;
-		}).join('')}
+function renderCard(item) {
+  return `<div class="card p-3 shadow-lg rounded-lg" style="max-width: 400px; margin: 10px auto; background-color: #f9f9f9; border-radius: 10px; overflow: hidden;">
+    ${Object.entries(item).map(([key, val]) => {
+      // Format multiline text (replace newlines with <br>)
+      const formattedVal = val ? val.replace(/\n/g, '<br>') : '';
 
-    </div>`;
+      // Check if the key is 'Diet_Off_Status' and apply a background color to it
+      if (key === 'Diet_Off_Status') {
+        let statusColor = '';
+        if (val === 'Diet_Off') {
+          statusColor = 'background-color: #f44336; color: white; padding: 3px 10px; border-radius: 5px;';
+        } else if (val === 'Diet_ON') {
+          statusColor = 'background-color: #4CAF50; color: white; padding: 3px 10px; border-radius: 5px;';
+        }
+        // Return the Diet_Off_Status field with the background color applied
+        return `<p style="font-size: 14px; font-weight: 600; color: #333;"><strong>${key}</strong><br><span style="${statusColor}">${formattedVal}</span></p>`;
+      }
+
+      // Check if the key is 'Status' and apply a background color to the status text
+      if (key === 'Status') {
+        let statusColor = '';
+        if (val.toLowerCase() === 'approved') {
+          statusColor = 'background-color: #4CAF50; color: white; padding: 3px 10px; border-radius: 5px;';
+        } else if (val.toLowerCase() === 'pending') {
+          statusColor = 'background-color: #ff9800; color: white; padding: 3px 10px; border-radius: 5px;';
+        } else if (val.toLowerCase() === 'rejected') {
+          statusColor = 'background-color: #f44336; color: white; padding: 3px 10px; border-radius: 5px;';
+        }
+        // Return the status with the background color applied
+        return `<p style="font-size: 14px; font-weight: 600; color: #333;"><strong>${key}</strong><br><span style="${statusColor}">${formattedVal}</span></p>`;
+      }
+
+      // Check if the key is 'Attachment' and if it contains a URL
+      if (key === 'Attachment' && val) {
+        // Check if val looks like a valid URL
+        const isValidUrl = (str) => {
+          const pattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+          return pattern.test(str);
+        };
+
+        if (isValidUrl(val)) {
+          // If the URL is valid, make it a clickable link
+          return `<p style="font-size: 14px; font-weight: 600; color: #333;"><strong>${key}</strong><br><a href="${val}" target="_blank" style="color: #007bff; text-decoration: none;">${val}</a></p>`;
+        } else {
+          // If it's not a valid URL, just display the text
+          return `<p style="font-size: 14px; font-weight: 600; color: #333;"><strong>${key}</strong><br>${formattedVal}</p>`;
+        }
+      }
+
+      // For other fields, return with a slightly modernized look
+      return `<p style="font-size: 14px; font-weight: 600; color: #333;"><strong>${key}</strong><br>${formattedVal}</p>`;
+    }).join('')}
+  </div>`;
+}
+
+  
+// Render Installment data (Second Card)
+  function renderInstallmentData(data) {
+    const installmentContainer = document.getElementById('installmentsContent');
+    installmentContainer.innerHTML = data.length ? data.map(renderCard).join('') : '<p>No installments found.</p>';
+  }
+
+  // Fetch and render installments for the user
+  async function fetchAndRenderInstallments() {
+    if (userEmail) {
+      const installmentsData = await fetchSheet(sheetNames[5], true); // Fetch the "Instalments" data and filter by email
+      renderInstallmentData(installmentsData);
+    } else {
+      const modal = new bootstrap.Modal(document.getElementById('emailModal'));
+      modal.show();
+    }
   }
 
   function renderTab(tabId, data) {
@@ -301,22 +610,21 @@
     renderTab('personnel', await fetchSheet(sheetNames[4]));
 
     if (userEmail) {
-      renderTab('instalmentsContent', await fetchSheet(sheetNames[0], true));
-      renderTab('dietsContent', await fetchSheet(sheetNames[1], true));
+      renderTab('DetailsContent', await fetchSheet(sheetNames[0], true));
+      renderTab('dietsContent', await fetchSheet(sheetNames[1], true));	    
     }
   }
 
   displaySavedEmail();
   initTabs();
 
-  document.getElementById("instalmentsLink").addEventListener("click", function(event) {
+  document.getElementById("DetailsLink").addEventListener("click", function(event) {
     if (!userEmail) {
       event.preventDefault();
       const modal = new bootstrap.Modal(document.getElementById('emailModal'));
       modal.show();
     }
   });
-
   document.getElementById("dietsLink").addEventListener("click", function(event) {
     if (!userEmail) {
       event.preventDefault();
@@ -324,6 +632,250 @@
       modal.show();
     }
   });
+  document.getElementById("installmentform").addEventListener("click", function(event) {
+    if (!userEmail) {
+      event.preventDefault();
+      const modal = new bootstrap.Modal(document.getElementById('emailModal'));
+      modal.show();
+      // Change the styling of the element (e.g., make an element with ID 'someElement' visible)
+      document.getElementById('installmentform').style.display = 'block';
+    }
+  });
+
+// Handle showing and hiding screenshot input based on installment mode
+document.getElementById("installmentMode").addEventListener("change", function () {
+  const screenshotContainer = document.getElementById("screenshotContainer");
+  if (this.value === "Online") {
+    screenshotContainer.style.display = "block";
+  } else {
+    screenshotContainer.style.display = "none";
+  }
+});
+
+// Validate room number (max 3 digits and no 1005)
+function isValidRoomNumber(roomNumber) {
+  const regex = /^[0-9]{1,3}$/;
+  return regex.test(roomNumber) && roomNumber !== "1005";
+}
+// Handle the first card click to toggle the first form visibility
+document.getElementById("installmentCard").addEventListener("click", function () {
+  // Hide both cards and show only the first form
+  document.getElementById("installmentCard").style.display = "none";
+  document.getElementById("secondInstallmentCard").style.display = "none";
+  document.getElementById("installmentForm").style.display = "block";
+  document.getElementById("secondInstallmentForm").style.display = "none"; // Ensure second form is hidden
+});
+
+// Handle the second card click to toggle the second form visibility
+document.getElementById("secondInstallmentCard").addEventListener("click", function () {
+  // Hide both cards and show only the second form
+  document.getElementById("installmentCard").style.display = "none";
+  document.getElementById("secondInstallmentCard").style.display = "none";
+  document.getElementById("secondInstallmentForm").style.display = "block";
+  document.getElementById("installmentForm").style.display = "none"; // Ensure first form is hidden
+  fetchAndRenderInstallments(); // Fetch and render installments data for the user
+
+});
+
+// Handle the back button on the first form to show both cards again
+document.getElementById("backButton").addEventListener("click", function () {
+  // Show both cards and hide both forms
+  document.getElementById("installmentCard").style.display = "block";
+  document.getElementById("secondInstallmentCard").style.display = "block";
+  document.getElementById("installmentForm").style.display = "none";
+  document.getElementById("secondInstallmentForm").style.display = "none";
+});
+
+// Handle the back button on the second form to show both cards again
+document.getElementById("secondBackButton").addEventListener("click", function () {
+  // Show both cards and hide both forms
+  document.getElementById("installmentCard").style.display = "block";
+  document.getElementById("secondInstallmentCard").style.display = "block";
+  document.getElementById("installmentForm").style.display = "none";
+  document.getElementById("secondInstallmentForm").style.display = "none";
+});
+
+// Handle the back button to hide the form and show the card again
+document.getElementById("backButton").addEventListener("click", function () {
+  const formCard = document.getElementById("installmentForm");
+  const installmentCard = document.getElementById("installmentCard");
+
+  // Show the initial card and hide the form
+  formCard.style.display = "none";
+  installmentCard.style.display = "block";
+});
+window.onload = function() {
+  document.getElementById("loadingSpinner").style.display = 'none';
+};
+
+// Handle form submission
+document.getElementById("installmentform").addEventListener("submit", async function (event) {
+  event.preventDefault();
+  document.getElementById("loadingSpinner").style.display = 'flex';
+
+
+  // Get form data
+  const email = localStorage.getItem('welfareEmail');
+  const name = document.getElementById("name").value.trim();
+  const roomNumber = document.getElementById("roomNumber").value.trim();
+  const installmentDate = document.getElementById("installmentDate").value;
+  const installmentAmount = document.getElementById("installmentAmount").value;
+  const installmentMode = document.getElementById("installmentMode").value;
+  const screenshot = document.getElementById("screenshot").files[0];
+
+  // Validate the room number
+  if (!isValidRoomNumber(roomNumber)) {
+    alert("Invalid room number. It must be a valid number and not 1005.");
+    return;
+  }
+
+  // Validate other fields
+  if (!name || !roomNumber || !installmentDate || !installmentAmount || !installmentMode) {
+    alert("Please fill in all the fields.");
+    return;
+  }
+
+  // If mode is "Online", check if a screenshot is attached
+  if (installmentMode === "Online" && !screenshot) {
+    alert("Please attach a screenshot for online installment mode.");
+    return;
+  }
+
+  // Upload the screenshot (if online) to Google Drive or your preferred storage
+  let screenshotUrl = '';
+  if (installmentMode === "Online" && screenshot) {
+    // You would upload the file to a cloud service (Google Drive, etc.) and get the URL
+    // For this example, we'll just simulate it.
+    screenshotUrl = await uploadScreenshot(screenshot);
+  }
+
+  // Send data to Google Sheets
+  const data = {
+    email,
+    name,
+    roomNumber,
+    installmentDate,
+    installmentAmount,
+    installmentMode,
+    screenshotUrl,
+    status: 'Pending', // Default status
+  };
+
+  // Send data to Google Sheets
+  try {
+    await sendToSheet(data);
+    showModal("Success", "Installment information submitted successfully.");
+  } catch (error) {
+    console.error('Error while submitting data:', error);
+    showModal("Error", "An error occurred. Please try again.");
+  } finally {
+    // Hide the spinner after the process is finished (success or failure)
+    document.getElementById("loadingSpinner").style.display = 'none';
+  }
+});
+
+// Show the modal with a dynamic title and message
+function showModal(title, message) {
+  // Set the dynamic title and message in the modal
+  document.getElementById("statusModalLabel").textContent = title;
+  document.getElementById("modalMessageBody").textContent = message;
+
+  // Show the modal using Bootstrap's modal method
+  var modal = new bootstrap.Modal(document.getElementById('statusModal'));
+  modal.show();
+}
+// Upload the screenshot to Google Drive and return the file URL
+// Upload the screenshot, convert to Base64 and send payload to Google Apps Script
+async function uploadScreenshot(screenshot) {
+    // Create a FileReader instance to read the screenshot as Base64
+    const reader = new FileReader();
+
+    // Return a promise that resolves when the file has been successfully read
+    return new Promise((resolve, reject) => {
+        reader.onloadend = function() {
+            // Get the Base64 string from the reader result
+            const base64String = reader.result.split(',')[1]; // Remove the data URI prefix
+	    // Construct the file name in the desired format
+            const submitting = "submitting_at"; // You can replace this with the actual submitting value if needed
+	    const email = localStorage.getItem('welfareEmail');
+	    const name = document.getElementById("name").value.trim();
+	    const roomNumber = document.getElementById("roomNumber").value.trim();
+	    const installmentDate = document.getElementById("installmentDate").value;
+	    const installmentAmount = document.getElementById("installmentAmount").value;
+            const datetime = new Date().toISOString(); // Get the current datetime in ISO format
+            const fileName = `${name}_${roomNumber}_${installmentAmount}_${installmentDate}_actual_${submitting}_${datetime}_${email}`;
+
+            // Prepare the payload to send (file name, Base64 string, and file type)
+            const payload = {
+                fileName: fileName,
+                fileData: base64String,
+                fileType: screenshot.type
+            };
+
+            // Send the Base64 file data to the Google Apps Script endpoint
+            fetch('https://script.google.com/macros/s/AKfycbyc1hpYYiiNladWBme6OTahwvuxX0J6-SV32dNPfiU3-OQQNjhqn3u9hjkJMpn9Prkh/exec', {
+                method: 'POST',
+                body: JSON.stringify(payload),  // Send the file data as JSON
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Server response:', data);
+
+                // Extract the screenshot URL from the response
+                const screenshotUrl = data.screenshotUrl;
+
+                // Resolve the promise with the screenshot URL
+                resolve(screenshotUrl);
+            })
+            .catch(error => {
+                console.error('Error sending data:', error);
+                reject(error); // Reject the promise if an error occurs
+            });
+        };
+
+        // Read the screenshot file as a data URL (Base64)
+        reader.onerror = function(error) {
+            console.error('Error reading file:', error);
+            reject(error); // Reject the promise if an error occurs
+        };
+
+        reader.readAsDataURL(screenshot); // Convert the file to Base64
+    });
+}
+// Send data to Google Apps Script (which will save it in Google Sheets)
+async function sendToSheet(data) {
+  const scriptUrl = 'https://script.google.com/macros/s/AKfycbzsplg4RciIB7SDM_nY57on4Fp9grYmHLpXDq4Bo3fAmL1tAHrpuooWbmTNH_F_t6-u/exec'; // Your Google Apps Script URL
+
+  try {
+    const response = await fetch(scriptUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json', // Sending JSON data
+      },
+      body: JSON.stringify(data), // Convert data object to JSON format
+    });
+
+    // Check if the response is OK (HTTP status 200)
+    if (response.ok) {
+      const result = await response.json(); // Get the response from Google Apps Script
+      if (result.result === 'success') {
+        console.log("Data saved successfully.");
+      } else {
+        console.error("Error saving data:", result);
+      }
+    } else {
+      console.error("Request failed with status:", response.status);
+    }
+  } catch (error) {
+    console.error("Error sending data:", error);
+  }
+  // Reload the page after everything is done
+  setTimeout(function() {
+    location.reload(); // Reload the page
+  }, 3000); // 3 seconds delay before reload
+}
+
 </script>
 
 </body>
